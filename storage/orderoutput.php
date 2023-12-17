@@ -15,8 +15,8 @@ class OrderHandler {
     }
 
     public function getPendingOrders() {
-        // Modify the SQL query to select only records where status is "Pending" and not "Delivered"
-        $sql = "SELECT * FROM orders WHERE `statuss` <> 'Delivered'";
+        // Modify the SQL query to select only records where status is "Pending" and not "Delivered" or "Accepted"
+        $sql = "SELECT * FROM orders WHERE  `statuss` <> 'Delivered' AND `statuss` <> 'Accepted'";
         $result = $this->conn->query($sql);
 
         if ($result->num_rows > 0) {
